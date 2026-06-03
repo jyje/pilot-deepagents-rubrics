@@ -22,7 +22,9 @@
 
 ## 개요
 
-`RubricMiddleware`는 LangChain DeepAgents 미들웨어로, 에이전트 출력을 기준 목록으로 자동 채점하고, 실패 시 구체적인 피드백을 주입해 재시도하며, 모든 기준이 통과되거나 `max_iterations`에 도달할 때까지 반복합니다.
+> **`RubricMiddleware`는 `/goal` 루프의 LangChain 버전입니다** — "모든 기준이 통과될 때까지 재시도" 패턴을 3줄 플러그인 미들웨어로 패키징한 것.
+
+`RubricMiddleware`는 에이전트 출력을 기준 목록으로 자동 채점하고, 실패 시 구체적인 피드백을 주입해 재시도하며, 모든 기준이 통과되거나 `max_iterations`에 도달할 때까지 반복합니다.
 
 이 레포지토리는 **Anthropic Claude**를 AI 공급자로 사용해 미들웨어의 전체 루프를 검증하고 결과를 문서화합니다.
 
@@ -68,16 +70,33 @@ TodoListMiddleware.after_model         │
 
 → 토큰 수준 전체 실행 로그: [docs/result.txt](docs/result.txt)
 
+### 데모 2 — 피보나치 pytest (LangGraph Studio)
+
+LangGraph Studio에서 실행한 보다 복잡한 작업. 스크린샷과 LangSmith 트레이스 포함.
+채점 에이전트가 비직관적인 문제를 잡아냈습니다: 구문적으로는 유효하지만 구현 파일 없이는 실행할 수 없는 테스트 코드.
+
+→ 스크린샷 포함 전체 결과: [docs/06-result-fibonacci-ko.md](docs/06-result-fibonacci-ko.md) · [English](docs/06-result-fibonacci.md)
+
 ## 빠른 시작
 
 ```bash
 git clone https://github.com/jyje/pilot-deepagents-rubrics.git
 cd pilot-deepagents-rubrics/src
-cp .env.sample .env          # ANTHROPIC_API_KEY 입력
+# ANTHROPIC_API_KEY 입력
+cp .env.sample .env
+
+# 기본 의존성 설치
+uv sync
+
+# 설정 확인
+uv run python doctor.py
+
+# CLI 데모 실행
+uv run python main.py
+
+# LangGraph Studio (최초 1회 studio 의존성 설치)
 uv sync --extra studio
-uv run python doctor.py      # 설정 확인
-uv run python main.py        # 데모 실행
-uv run langgraph dev         # LangGraph Studio 열기
+uv run langgraph dev --tunnel
 ```
 
 → 전체 설정 가이드: [docs/03-anthropic-setup.md](docs/03-anthropic-setup.md)

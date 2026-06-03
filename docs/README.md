@@ -15,7 +15,8 @@
 | [03-anthropic-setup.md](03-anthropic-setup.md) | [03-anthropic-setup-ko.md](03-anthropic-setup-ko.md) | Anthropic API key setup, recommended models, environment variables |
 | [04-langgraph-studio.md](04-langgraph-studio.md) | [04-langgraph-studio-ko.md](04-langgraph-studio-ko.md) | LangGraph Studio web UI — graph visualization, run traces, LangSmith setup |
 | [05-lmstudio.md](05-lmstudio.md) | [05-lmstudio-ko.md](05-lmstudio-ko.md) | LM Studio local setup — free alternative when paid Anthropic API is unavailable |
-| [result.txt](result.txt) | — | Verified demo run: 3-iteration rubric loop with token-level breakdown |
+| [06-result-fibonacci.md](06-result-fibonacci.md) | [06-result-fibonacci-ko.md](06-result-fibonacci-ko.md) | Demo result: Fibonacci pytest, 2-iteration rubric loop with screenshots and trace |
+| [result.txt](result.txt) | — | First demo run: string reversal, 3-iteration rubric loop with token breakdown |
 
 ### Key Concepts
 
@@ -68,7 +69,8 @@ The term comes from educational assessment. Latin *rubrica* → medieval liturgi
 | [03-anthropic-setup-ko.md](03-anthropic-setup-ko.md) | [03-anthropic-setup.md](03-anthropic-setup.md) | Anthropic API 키 설정, 권장 모델, 환경변수 |
 | [04-langgraph-studio-ko.md](04-langgraph-studio-ko.md) | [04-langgraph-studio.md](04-langgraph-studio.md) | LangGraph Studio 웹 UI — 그래프 시각화, 실행 추적, LangSmith 설정 |
 | [05-lmstudio-ko.md](05-lmstudio-ko.md) | [05-lmstudio.md](05-lmstudio.md) | LM Studio 로컬 설정 — 유료 Anthropic API 사용 불가 시 무료 대안 |
-| [result.txt](result.txt) | — | 검증 데모 실행 결과: 3회 루브릭 루프 + 토큰 수준 상세 로그 |
+| [06-result-fibonacci-ko.md](06-result-fibonacci-ko.md) | [06-result-fibonacci.md](06-result-fibonacci.md) | 데모 결과: 피보나치 pytest, 2회 루브릭 루프 + 스크린샷 및 트레이스 |
+| [result.txt](result.txt) | — | 첫 번째 데모: 문자열 역순, 3회 루브릭 루프 + 토큰 수준 로그 |
 
 ### 핵심 개념
 

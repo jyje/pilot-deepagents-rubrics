@@ -22,7 +22,9 @@
 
 ## Overview
 
-`RubricMiddleware` is a LangChain DeepAgents middleware that automatically grades an agent's output against a set of criteria, injects targeted feedback on failure, and retries — until all criteria pass or `max_iterations` is reached.
+> **`RubricMiddleware` is LangChain's version of the `/goal` loop** — the "keep retrying until all criteria pass" pattern, packaged as a 3-line plug-in middleware for DeepAgents.
+
+`RubricMiddleware` automatically grades an agent's output against a set of criteria, injects targeted feedback on failure, and retries — until all criteria pass or `max_iterations` is reached.
 
 This repository pilots the middleware with **Anthropic Claude** as the AI provider, validates the complete loop end-to-end, and documents the findings.
 
@@ -68,16 +70,33 @@ Task: *"Write a Python function that reverses a string"* with three rubric crite
 
 → Full execution log with token breakdown: [docs/result.txt](docs/result.txt)
 
+### Demo 2 — Fibonacci pytest (LangGraph Studio)
+
+A more complex task run via LangGraph Studio with screenshots and LangSmith trace.
+The grader caught a non-obvious issue: syntactically valid test code that couldn't actually *run* without the missing implementation file.
+
+→ Full result with screenshots: [docs/06-result-fibonacci.md](docs/06-result-fibonacci.md) · [한국어](docs/06-result-fibonacci-ko.md)
+
 ## Quick Start
 
 ```bash
 git clone https://github.com/jyje/pilot-deepagents-rubrics.git
 cd pilot-deepagents-rubrics/src
-cp .env.sample .env          # set ANTHROPIC_API_KEY
+# set ANTHROPIC_API_KEY
+cp .env.sample .env
+
+# install base dependencies
+uv sync
+
+# verify setup
+uv run python doctor.py
+
+# run CLI demo
+uv run python main.py
+
+# LangGraph Studio (install studio dependencies first time)
 uv sync --extra studio
-uv run python doctor.py      # verify setup
-uv run python main.py        # run demo
-uv run langgraph dev         # open LangGraph Studio
+uv run langgraph dev --tunnel
 ```
 
 → Full setup guide: [docs/03-anthropic-setup.md](docs/03-anthropic-setup.md)
