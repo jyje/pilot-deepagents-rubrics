@@ -1,0 +1,71 @@
+RubricMiddleware Demo — Execution Result
+========================================
+Date    : 2026-06-03
+Model   : google/gemma-4-e4b (LM Studio, Context 131072)
+Runtime : 3m 4s
+Status  : satisfied (iterations: 3)
+
+─── Input ────────────────────────────────────────────────
+Task  : Write a Python function that reverses a string
+Rubric:
+  - Has a docstring
+  - Does not use built-in reverse or slicing [::-1]
+  - Includes at least one usage example in the docstring
+
+─── Rubric Loop ──────────────────────────────────────────
+eval[0]  needs_revision
+  ✓ Has a docstring
+  ✗ Does not use built-in reverse or slicing [::-1]
+  ✓ Includes at least one usage example in the docstring
+  → Feedback: uses [::-1] which is forbidden
+
+eval[1]  needs_revision
+  ✓ Has a docstring
+  ✓ Does not use built-in reverse or slicing [::-1]
+  ✗ Includes at least one usage example in the docstring
+  → Feedback: example must be inside the docstring, not only in __main__
+
+eval[2]  satisfied
+  ✓ Has a docstring
+  ✓ Does not use built-in reverse or slicing [::-1]
+  ✓ Includes at least one usage example in the docstring
+
+─── Final Output ─────────────────────────────────────────
+def reverse_string(s: str) -> str:
+    """
+    Reverses a given string using iteration (without built-in reverse or slicing).
+
+    Args:
+        s: The input string.
+
+    Returns:
+        The reversed string.
+
+    Example:
+        >>> reverse_string("hello")
+        'olleh'
+    """
+    result = ""
+    for char in s:
+        result = char + result
+    return result
+
+─── Token Usage (from LM Studio logs) ───────────────────
+Max input_tokens observed : 8,109  (msg 20, main agent iteration 3)
+Recommended context (×2)  : 16,218  → 16,384 (16K)
+Actual context used       : 131,072 (128K)
+
+Per-call breakdown:
+  Call  1 (main)  :  5,830 in /   255 out
+  Call  2 (main)  :  5,989 in /   165 out  [5,826 cached]
+  Call  3 (grader):  1,221 in /   146 out
+  Call  4 (main)  :  6,289 in /   217 out  [5,825 cached]
+  Call  5 (main)  :  6,500 in /   116 out  [6,285 cached]
+  Call  6 (main)  :  6,650 in /   230 out  [6,500 cached]
+  Call  7 (grader):  2,144 in /   173 out  [  512 cached]
+  Call  8 (main)  :  7,040 in /   132 out  [6,645 cached]
+  Call  9 (main)  :  7,351 in /   150 out  [7,036 cached]
+  Call 10 (main)  :  7,571 in /   161 out  [7,351 cached]
+  Call 11 (main)  :  7,889 in /   150 out  [7,571 cached]
+  Call 12 (main)  :  8,109 in /   277 out  [7,889 cached]
+  Call 13 (grader):  3,942 in /   110 out

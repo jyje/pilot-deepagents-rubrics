@@ -1,0 +1,16 @@
+[project]
+name = "pilot-deepagents-rubrics"
+version = "0.1.0"
+description = "RubricMiddleware pilot with DeepAgents on NVIDIA NIM APIs"
+readme = "README.md"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+    "deepagents == 0.6.7",
+    "langchain-anthropic>=0.3.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+studio = [
+    "langgraph-cli[inmem]>=0.1.0",
+]
