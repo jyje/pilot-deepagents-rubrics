@@ -5,7 +5,7 @@
 <img width="280" src="https://raw.githubusercontent.com/langchain-ai/deepagentsjs/refs/heads/main/.github/images/logo-light.svg#gh-light-mode-only" alt="DeepAgents"/>
 <img width="280" src="https://raw.githubusercontent.com/langchain-ai/deepagentsjs/refs/heads/main/.github/images/logo-dark.svg#gh-dark-mode-only" alt="DeepAgents"/>
 
-🚀 LangChain DeepAgents `RubricMiddleware` 파일럿 — Anthropic Claude 기반
+🚀 LangChain DeepAgents `RubricMiddleware` 파일럿
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/jyje/pilot-deepagents-rubrics?style=social)](https://github.com/jyje/pilot-deepagents-rubrics)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -74,6 +74,9 @@ TodoListMiddleware.after_model         │
 
 LangGraph Studio에서 실행한 보다 복잡한 작업. 스크린샷과 LangSmith 트레이스 포함.
 채점 에이전트가 비직관적인 문제를 잡아냈습니다: 구문적으로는 유효하지만 구현 파일 없이는 실행할 수 없는 테스트 코드.
+단순 구문 검사나 "다시 해봐"로는 절대 잡을 수 없는 문제 — 루브릭 기준이 에이전트에게 완전히 독립 실행 가능한 산출물을 요구한 덕분입니다.
+
+![LangGraph Studio — 피보나치 데모](docs/assets/result-fibonacci-interact.png)
 
 → 스크린샷 포함 전체 결과: [docs/06-result-fibonacci-ko.md](docs/06-result-fibonacci-ko.md) · [English](docs/06-result-fibonacci.md)
 

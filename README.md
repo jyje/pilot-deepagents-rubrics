@@ -5,7 +5,7 @@
 <img width="280" src="https://raw.githubusercontent.com/langchain-ai/deepagentsjs/refs/heads/main/.github/images/logo-light.svg#gh-light-mode-only" alt="DeepAgents"/>
 <img width="280" src="https://raw.githubusercontent.com/langchain-ai/deepagentsjs/refs/heads/main/.github/images/logo-dark.svg#gh-dark-mode-only" alt="DeepAgents"/>
 
-🚀 Pilot project for LangChain DeepAgents `RubricMiddleware` — powered by Anthropic Claude
+🚀 Pilot project for LangChain DeepAgents `RubricMiddleware`
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/jyje/pilot-deepagents-rubrics?style=social)](https://github.com/jyje/pilot-deepagents-rubrics)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -74,6 +74,9 @@ Task: *"Write a Python function that reverses a string"* with three rubric crite
 
 A more complex task run via LangGraph Studio with screenshots and LangSmith trace.
 The grader caught a non-obvious issue: syntactically valid test code that couldn't actually *run* without the missing implementation file.
+No syntax checker or generic "try again" would catch this — only a rubric criterion that demanded a fully self-contained, executable artifact.
+
+![LangGraph Studio — Fibonacci demo](docs/assets/result-fibonacci-interact.png)
 
 → Full result with screenshots: [docs/06-result-fibonacci.md](docs/06-result-fibonacci.md) · [한국어](docs/06-result-fibonacci-ko.md)
 
